@@ -25,17 +25,17 @@ st.write("""
     position: absolute;
     background-color: rgba(0, 255, 0, 0.4);
     border: none;
-    color: transparent;
+    color: black;
     padding: 8px;
     font-size: 14px;
     cursor: pointer;
     z-index: 1;
 }
 #dataAnalytics { left: 470px; top: 370px; width: 111px; height: 71px; }
-#imseElective1 { left: 910px; top: 480px; width: 111px; height: 71px; }
-#imseElective2 { left: 1030px; top: 270px; width: 111px; height: 71px; }
-#engineeringElective1 { left: 620px; top: 680px; width: 121px; height: 81px; }
-#engineeringElective2 { left: 750px; top: 680px; width: 111px; height: 81px; }
+#imseElective1 { left: 910px; top: 460px; width: 111px; height: 71px; }
+#imseElective2 { left: 1030px; top: 250px; width: 111px; height: 71px; }
+#engineeringElective1 { left: 620px; top: 655px; width: 121px; height: 81px; }
+#engineeringElective2 { left: 750px; top: 655px; width: 111px; height: 81px; }
 </style>
 
 <div class="container">
@@ -49,7 +49,7 @@ st.write("""
 """, unsafe_allow_html=True)
 
 # Display elective info based on query param
-query_params = st.query_params
+query_params = st.experimental_get_query_params()
 button_clicked = query_params.get("button", [None])[0]
 
 if button_clicked:
