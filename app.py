@@ -43,7 +43,8 @@ if selected == "Data Analytics":
     """, unsafe_allow_html=True)
 
 elif selected == "IMSE Elective 1":
-    st.markdown("<h3>IMSE Elective 1 Options</h3>" + f"<ol>
+    st.markdown("<h3>IMSE Elective 1 Options</h3>", unsafe_allow_html=True)
+    st.markdown("""<ol>
     <li><b>IMSE 441 – Introduction to Analytics</b><br>
     <b>Offered in:</b> Fall and Spring<br>
     <b>Overview:</b> Learn how to analyze data and make decisions using Pythonwithout needing to be a programming wizard. Youll work with real-world datasets to perform statistical analysis, test hypotheses, build regression models, and create visualizations that inform better decisions in industrial engineering.<br>
@@ -85,10 +86,11 @@ elif selected == "IMSE Elective 1":
     <b>Overview:</b> Learn how to manage, analyze, and visualize massive datasets using tools like Hadoop, Spark, and machine learning. This course covers everything from data storage and retrieval to real-time analytics and AI model training. Ideal for future data engineers and analysts.<br>
     <b>Technical Skills:</b> Hadoop & Spark, SQL/NoSQL querying, Machine learning with PySpark, Data wrangling & ingestion, Data visualization & dashboarding<br>
     <b>Durable Skills:</b> Problem-solving with data, Communication of insights, Strategic tech planning, Collaboration on complex data projects, Adaptability to new tools<br></li><br>
-    </ol>", unsafe_allow_html=True)
+    </ol>""", unsafe_allow_html=True)
 
 elif selected == "IMSE Elective 2":
-    st.markdown("<h3>IMSE Elective 2 Options</h3>" + f"<ol>
+    st.markdown("<h3>IMSE Elective 2 Options</h3>", unsafe_allow_html=True)
+    st.markdown("""<ol>
     <li><b>IMSE 441 – Introduction to Analytics</b><br>
     <b>Offered in:</b> Fall and Spring<br>
     <b>Overview:</b> Learn how to analyze data and make decisions using Pythonwithout needing to be a programming wizard. Youll work with real-world datasets to perform statistical analysis, test hypotheses, build regression models, and create visualizations that inform better decisions in industrial engineering.<br>
@@ -142,10 +144,11 @@ elif selected == "IMSE Elective 2":
     <b>Overview:</b> Learn how to manage, analyze, and visualize massive datasets using tools like Hadoop, Spark, and machine learning. This course covers everything from data storage and retrieval to real-time analytics and AI model training. Ideal for future data engineers and analysts.<br>
     <b>Technical Skills:</b> Hadoop & Spark, SQL/NoSQL querying, Machine learning with PySpark, Data wrangling & ingestion, Data visualization & dashboarding<br>
     <b>Durable Skills:</b> Problem-solving with data, Communication of insights, Strategic tech planning, Collaboration on complex data projects, Adaptability to new tools<br></li><br>
-    </ol>", unsafe_allow_html=True)
+    </ol>""", unsafe_allow_html=True)
 
 elif selected == "Engineering Elective 1":
-    st.markdown("<h3>Engineering Elective 1 Options</h3>" + f"<ol>
+    st.markdown("<h3>Engineering Elective 1 Options</h3>", unsafe_allow_html=True)
+    st.markdown("""<ol>
     <li><b>BAE 345 – Properties of Biological Materials</b><br>
     <b>Offered in:</b> Unknown<br>
     <b>Overview:</b> Explore the physical, chemical, thermal, and mechanical properties of biological materialslike plants, food, and bio-based materialsand how they behave in real-world systems. Youll learn how to measure things like moisture content, density, porosity, and fluid behavior, and apply those insights to designing better agricultural and biological processes.<br>
@@ -175,10 +178,11 @@ elif selected == "Engineering Elective 1":
     <b>Overview:</b> Deepen your understanding of thermodynamics by analyzing phase behavior and chemical reactions. This course covers advanced topics like fugacity, activity models, phase equilibrium, and reaction equilibriumcritical tools for designing chemical processes and systems.<br>
     <b>Technical Skills:</b> Fugacity & chemical potential calculations, Phase diagram interpretation, Vapor-liquid equilibrium (VLE), Reaction equilibrium modeling, Activity coefficient models, Thermodynamic software use<br>
     <b>Durable Skills:</b> Complex system modeling, Analytical problem-solving, Quantitative reasoning, Scientific precision, Interpreting multivariable interactions</li><br>
-    </ol>", unsafe_allow_html=True)
+    </ol>""", unsafe_allow_html=True)
 
 elif selected == "Engineering Elective 2":
-    st.markdown("<h3>Engineering Elective 2 Options</h3>" + f"<ol>
+    st.markdown("<h3>Engineering Elective 2 Options</h3>", unsafe_allow_html=True)
+    st.markdown("""<ol>
     <li><b>BAE 345 – Properties of Biological Materials</b><br>
     <b>Offered in:</b> Unknown<br>
     <b>Overview:</b> Explore the physical, chemical, thermal, and mechanical properties of biological materialslike plants, food, and bio-based materialsand how they behave in real-world systems. Youll learn how to measure things like moisture content, density, porosity, and fluid behavior, and apply those insights to designing better agricultural and biological processes.<br>
@@ -208,4 +212,4 @@ elif selected == "Engineering Elective 2":
     <b>Overview:</b> Learn how materials respond to forces and moments in real-world structures. This course covers stress, strain, deformation, and failure in beams, shafts, and pressure vessels. Youll calculate internal forces, deflections, and design members under axial, bending, shear, and torsional loads.<br>
     <b>Technical Skills:</b> Stress-strain analysis, Beam deflection calculations, Mohrs circle, Combined loading, Principal stresses, Material failure criteria<br>
     <b>Durable Skills:</b> Engineering judgment, Technical problem-solving, Attention to detail, Structural visualization, Applied mechanics thinking</li><br>
-    </ol>", unsafe_allow_html=True)
+    </ol>""", unsafe_allow_html=True)
