@@ -4,17 +4,13 @@ import streamlit as st
 st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center;'>Industrial Engineering Elective Flowchart</h1>", unsafe_allow_html=True)
 
-# Load background flowchart image
+# Background image
 st.image("ie_flowchart_home.png", use_container_width=True)
 
-# Initialize state
-if "clicked" not in st.session_state:
-    st.session_state.clicked = None
-
-# Custom button overlay using absolute positioning
+# CSS overlays with JS-compatible links instead of HTML form submissions
 st.markdown("""
 <style>
-.button-container {
+.container {
     position: relative;
     width: 1200px;
     height: 950px;
@@ -22,67 +18,64 @@ st.markdown("""
     margin-top: -950px;
     z-index: 2;
 }
-.button-wrapper {
+.overlay-button {
     position: absolute;
-}
-.button {
     background-color: rgba(0, 255, 0, 0.4);
     border: none;
     width: 100%;
     height: 100%;
     cursor: pointer;
+    text-decoration: none;
+    display: block;
 }
+#dataAnalytics { left: 470px; top: 370px; width: 111px; height: 71px; }
+#imseElective1 { left: 910px; top: 460px; width: 111px; height: 71px; }
+#imseElective2 { left: 1030px; top: 250px; width: 111px; height: 71px; }
+#engineeringElective1 { left: 620px; top: 655px; width: 121px; height: 81px; }
+#engineeringElective2 { left: 750px; top: 655px; width: 111px; height: 81px; }
 </style>
-<div class="button-container">
-    <div class="button-wrapper" style="left:470px; top:370px; width:111px; height:71px;">
-        <button onclick="window.location.search='?clicked=Data%20Analytics'" class="button"></button>
-    </div>
-    <div class="button-wrapper" style="left:910px; top:460px; width:111px; height:71px;">
-        <button onclick="window.location.search='?clicked=IMSE%20Elective%201'" class="button"></button>
-    </div>
-    <div class="button-wrapper" style="left:1030px; top:250px; width:111px; height:71px;">
-        <button onclick="window.location.search='?clicked=IMSE%20Elective%202'" class="button"></button>
-    </div>
-    <div class="button-wrapper" style="left:620px; top:655px; width:121px; height:81px;">
-        <button onclick="window.location.search='?clicked=Engineering%20Elective%201'" class="button"></button>
-    </div>
-    <div class="button-wrapper" style="left:750px; top:655px; width:111px; height:81px;">
-        <button onclick="window.location.search='?clicked=Engineering%20Elective%202'" class="button"></button>
-    </div>
+
+<div class="container">
+    <a href="/?clicked=Data%20Analytics" class="overlay-button" id="dataAnalytics"></a>
+    <a href="/?clicked=IMSE%20Elective%201" class="overlay-button" id="imseElective1"></a>
+    <a href="/?clicked=IMSE%20Elective%202" class="overlay-button" id="imseElective2"></a>
+    <a href="/?clicked=Engineering%20Elective%201" class="overlay-button" id="engineeringElective1"></a>
+    <a href="/?clicked=Engineering%20Elective%202" class="overlay-button" id="engineeringElective2"></a>
 </div>
 """, unsafe_allow_html=True)
 
-# Safe query param reader
-query_params = st.query_params
-if "clicked" in query_params:
-    st.session_state.clicked = query_params["clicked"]
+# Use updated query param API
+clicked = st.query_params.get("clicked", None)
+if clicked:
+    st.session_state.clicked = clicked
 
-# Show the correct content
-if st.session_state.clicked == "Data Analytics":
-    st.markdown("""
-    <h3>Data Analytics Elective Options</h3>
-    <ol>
-        <li><b>IMSE 441 – Experimental Design</b><br>
-        <b>Offered in:</b> Fall and Spring<br>
-        <b>Overview:</b> Design experiments and analyze results.<br>
-        <b>Technical Skills:</b> ANOVA, factorial design, statistical testing<br>
-        <b>Durable Skills:</b> Data analysis, precision, critical thinking<br>
-        <b>⚠️ Note:</b> This course can only be selected once—either as a Data Analytics or IMSE elective.</li><br>
-        <li><b>STAT 705 – Regression and ANOVA</b><br>
-        <b>Offered in:</b> Fall<br>
-        <b>Overview:</b> Regression modeling and ANOVA techniques.<br>
-        <b>Technical Skills:</b> Linear models, diagnostics<br>
-        <b>Durable Skills:</b> Statistical reasoning, modeling</li><br>
-        <li><b>STAT 511 – Statistical Methods I</b><br>
-        <b>Offered in:</b> Fall and Spring<br>
-        <b>Overview:</b> Core stats for data analysis.<br>
-        <b>Technical Skills:</b> Descriptive stats, hypothesis testing<br>
-        <b>Durable Skills:</b> Quantitative reasoning, critical thinking</li>
-    </ol>
-    """, unsafe_allow_html=True)
+if "clicked" in st.session_state:
+    which = st.session_state.clicked
 
-elif st.session_state.clicked == "IMSE Elective 1":
-    st.markdown(f"""<ol>
+    if which == "Data Analytics":
+        st.markdown("""
+        <h3>Data Analytics Elective Options</h3>
+        <ol>
+            <li><b>IMSE 441 – Experimental Design</b><br>
+            <b>Offered in:</b> Fall and Spring<br>
+            <b>Overview:</b> Design experiments and analyze results.<br>
+            <b>Technical Skills:</b> ANOVA, factorial design, statistical testing<br>
+            <b>Durable Skills:</b> Data analysis, precision, critical thinking<br>
+            <b>⚠️ Note:</b> This course can only be selected once—either as a Data Analytics or IMSE elective.</li><br>
+            <li><b>STAT 705 – Regression and ANOVA</b><br>
+            <b>Offered in:</b> Fall<br>
+            <b>Overview:</b> Regression modeling and ANOVA techniques.<br>
+            <b>Technical Skills:</b> Linear models, diagnostics<br>
+            <b>Durable Skills:</b> Statistical reasoning, modeling</li><br>
+            <li><b>STAT 511 – Statistical Methods I</b><br>
+            <b>Offered in:</b> Fall and Spring<br>
+            <b>Overview:</b> Core stats for data analysis.<br>
+            <b>Technical Skills:</b> Descriptive stats, hypothesis testing<br>
+            <b>Durable Skills:</b> Quantitative reasoning, critical thinking</li>
+        </ol>
+        """, unsafe_allow_html=True)
+    elif which == "IMSE Elective 1":
+        st.markdown(f"""<ol>
     <li><b>IMSE 441 – Introduction to Analytics</b><br>
     <b>Offered in:</b> Fall and Spring<br>
     <b>Overview:</b> Learn how to analyze data and make decisions using Pythonwithout needing to be a programming wizard. Youll work with real-world datasets to perform statistical analysis, test hypotheses, build regression models, and create visualizations that inform better decisions in industrial engineering.<br>
@@ -125,9 +118,8 @@ elif st.session_state.clicked == "IMSE Elective 1":
     <b>Technical Skills:</b> Hadoop & Spark, SQL/NoSQL querying, Machine learning with PySpark, Data wrangling & ingestion, Data visualization & dashboarding<br>
     <b>Durable Skills:</b> Problem-solving with data, Communication of insights, Strategic tech planning, Collaboration on complex data projects, Adaptability to new tools<br></li><br>
     </ol>""", unsafe_allow_html=True)
-
-elif st.session_state.clicked == "IMSE Elective 2":
-    st.markdown(f"""<ol>
+    elif which == "IMSE Elective 2":
+        st.markdown(f"""<ol>
     <li><b>IMSE 441 – Introduction to Analytics</b><br>
     <b>Offered in:</b> Fall and Spring<br>
     <b>Overview:</b> Learn how to analyze data and make decisions using Pythonwithout needing to be a programming wizard. Youll work with real-world datasets to perform statistical analysis, test hypotheses, build regression models, and create visualizations that inform better decisions in industrial engineering.<br>
@@ -182,9 +174,8 @@ elif st.session_state.clicked == "IMSE Elective 2":
     <b>Technical Skills:</b> Hadoop & Spark, SQL/NoSQL querying, Machine learning with PySpark, Data wrangling & ingestion, Data visualization & dashboarding<br>
     <b>Durable Skills:</b> Problem-solving with data, Communication of insights, Strategic tech planning, Collaboration on complex data projects, Adaptability to new tools<br></li><br>
     </ol>""", unsafe_allow_html=True)
-
-elif st.session_state.clicked == "Engineering Elective 1":
-    st.markdown(f"""<ol>
+    elif which == "Engineering Elective 1":
+        st.markdown(f"""<ol>
     <li><b>BAE 345 – Properties of Biological Materials</b><br>
     <b>Offered in:</b> Unknown<br>
     <b>Overview:</b> Explore the physical, chemical, thermal, and mechanical properties of biological materialslike plants, food, and bio-based materialsand how they behave in real-world systems. Youll learn how to measure things like moisture content, density, porosity, and fluid behavior, and apply those insights to designing better agricultural and biological processes.<br>
@@ -215,9 +206,8 @@ elif st.session_state.clicked == "Engineering Elective 1":
     <b>Technical Skills:</b> Fugacity & chemical potential calculations, Phase diagram interpretation, Vapor-liquid equilibrium (VLE), Reaction equilibrium modeling, Activity coefficient models, Thermodynamic software use<br>
     <b>Durable Skills:</b> Complex system modeling, Analytical problem-solving, Quantitative reasoning, Scientific precision, Interpreting multivariable interactions</li><br>
     </ol>""", unsafe_allow_html=True)
-
-elif st.session_state.clicked == "Engineering Elective 2":
-    st.markdown(f"""<ol>
+    elif which == "Engineering Elective 2":
+        st.markdown(f"""<ol>
     <li><b>BAE 345 – Properties of Biological Materials</b><br>
     <b>Offered in:</b> Unknown<br>
     <b>Overview:</b> Explore the physical, chemical, thermal, and mechanical properties of biological materialslike plants, food, and bio-based materialsand how they behave in real-world systems. Youll learn how to measure things like moisture content, density, porosity, and fluid behavior, and apply those insights to designing better agricultural and biological processes.<br>
