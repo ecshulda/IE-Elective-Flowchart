@@ -49,7 +49,7 @@ st.write("""
 """, unsafe_allow_html=True)
 
 # Display elective info based on query param
-query_params = st.experimental_get_query_params()
+query_params = st.query_params
 button_clicked = query_params.get("button", [None])[0]
 
 if button_clicked:
