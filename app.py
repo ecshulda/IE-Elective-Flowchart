@@ -40,11 +40,11 @@ st.write("""
 
 <div class="container">
     <img src="https://raw.githubusercontent.com/ecshulda/IE-Elective-Flowchart/main/ie_flowchart_home.png" class="bg">
-    <form action="?button=Data%20Analytics"><button id="dataAnalytics" class="button">Data Analytics</button></form>
-    <form action="?button=IMSE%20Elective%201"><button id="imseElective1" class="button">IMSE Elective 1</button></form>
-    <form action="?button=IMSE%20Elective%202"><button id="imseElective2" class="button">IMSE Elective 2</button></form>
-    <form action="?button=Engineering%20Elective%201"><button id="engineeringElective1" class="button">Engineering Elective 1</button></form>
-    <form action="?button=Engineering%20Elective%202"><button id="engineeringElective2" class="button">Engineering Elective 2</button></form>
+    <form action="?button=Data%20Analytics"><button id="dataAnalytics" class="button"></button></form>
+    <form action="?button=IMSE%20Elective%201"><button id="imseElective1" class="button"></button></form>
+    <form action="?button=IMSE%20Elective%202"><button id="imseElective2" class="button"></button></form>
+    <form action="?button=Engineering%20Elective%201"><button id="engineeringElective1" class="button"></button></form>
+    <form action="?button=Engineering%20Elective%202"><button id="engineeringElective2" class="button"></button></form>
 </div>
 """, unsafe_allow_html=True)
 
