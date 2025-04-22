@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 st.title("Industrial Engineering Elective Flowchart")
 
 # Load and show the background flowchart image
-st.image("ie_flowchart_home.png", use_column_width=True, caption="Click an elective area to explore courses")
+st.image("ie_flowchart_home.png", use_container_width=True, caption="Click an elective area to explore courses")
 
 # Sidebar controls
 st.sidebar.title("Explore Electives")
