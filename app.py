@@ -4,56 +4,60 @@ import streamlit as st
 st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center;'>Industrial Engineering Elective Flowchart</h1>", unsafe_allow_html=True)
 
-# Background image + overlayed buttons (with session state)
-st.write("""
+# Load background flowchart image
+st.image("ie_flowchart_home.png", use_container_width=True)
+
+# Initialize state
+if "clicked" not in st.session_state:
+    st.session_state.clicked = None
+
+# Custom button overlay using absolute positioning
+st.markdown("""
 <style>
-.container {
+.button-container {
     position: relative;
     width: 1200px;
     height: 950px;
     margin: auto;
+    margin-top: -950px;
+    z-index: 2;
 }
-.bg {
+.button-wrapper {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    z-index: 0;
 }
 .button {
-    position: absolute;
     background-color: rgba(0, 255, 0, 0.4);
     border: none;
-    color: transparent;
-    padding: 8px;
-    font-size: 14px;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
-    z-index: 1;
 }
-#dataAnalytics { left: 470px; top: 370px; width: 111px; height: 71px; }
-#imseElective1 { left: 910px; top: 460px; width: 111px; height: 71px; }
-#imseElective2 { left: 1030px; top: 250px; width: 111px; height: 71px; }
-#engineeringElective1 { left: 620px; top: 655px; width: 121px; height: 81px; }
-#engineeringElective2 { left: 750px; top: 655px; width: 111px; height: 81px; }
 </style>
-
-<div class="container">
-    <img src="https://raw.githubusercontent.com/ecshulda/IE-Elective-Flowchart/main/ie_flowchart_home.png" class="bg">
-    <form method="post"><button name="clicked" value="Data Analytics" id="dataAnalytics" class="button"></button></form>
-    <form method="post"><button name="clicked" value="IMSE Elective 1" id="imseElective1" class="button"></button></form>
-    <form method="post"><button name="clicked" value="IMSE Elective 2" id="imseElective2" class="button"></button></form>
-    <form method="post"><button name="clicked" value="Engineering Elective 1" id="engineeringElective1" class="button"></button></form>
-    <form method="post"><button name="clicked" value="Engineering Elective 2" id="engineeringElective2" class="button"></button></form>
+<div class="button-container">
+    <div class="button-wrapper" style="left:470px; top:370px; width:111px; height:71px;">
+        <button onclick="window.location.search='?clicked=Data%20Analytics'" class="button"></button>
+    </div>
+    <div class="button-wrapper" style="left:910px; top:460px; width:111px; height:71px;">
+        <button onclick="window.location.search='?clicked=IMSE%20Elective%201'" class="button"></button>
+    </div>
+    <div class="button-wrapper" style="left:1030px; top:250px; width:111px; height:71px;">
+        <button onclick="window.location.search='?clicked=IMSE%20Elective%202'" class="button"></button>
+    </div>
+    <div class="button-wrapper" style="left:620px; top:655px; width:121px; height:81px;">
+        <button onclick="window.location.search='?clicked=Engineering%20Elective%201'" class="button"></button>
+    </div>
+    <div class="button-wrapper" style="left:750px; top:655px; width:111px; height:81px;">
+        <button onclick="window.location.search='?clicked=Engineering%20Elective%202'" class="button"></button>
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
-if "clicked" not in st.session_state:
-    st.session_state.clicked = None
+# Safe query param reader
+query_params = st.query_params
+if "clicked" in query_params:
+    st.session_state.clicked = query_params["clicked"]
 
-# Handle post click from hidden form
-clicked = st.experimental_get_query_params().get("clicked", [None])[0]
-if clicked:
-    st.session_state.clicked = clicked
-
+# Show the correct content
 if st.session_state.clicked == "Data Analytics":
     st.markdown("""
     <h3>Data Analytics Elective Options</h3>
